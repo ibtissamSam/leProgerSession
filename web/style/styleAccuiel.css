@@ -1,0 +1,140 @@
+
+ body {
+ background-color: white;
+ /* */
+  background-image:url('image/30716.jpg');
+  background-size: 1500px;
+ }
+
+* {
+  font-family : tahoma, arial, serif;
+
+}
+
+#ul {
+  cursor: pointer;
+}
+
+#entete {
+  margin-top: -15px;
+
+  background-image: url(./image/Galaxy-cloud-desktop-wallpaper.jpg);
+  border : solid 2px white;
+}	
+
+h1{
+   text-align: center;
+  color: white;
+  font-family: serif;
+  font-size : 85px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+
+
+#main {
+  height:500px;
+} 
+
+.show, .hide { 
+  color: white;
+}
+
+#menu {
+    margin-left: 10px;
+    float:left;
+    position: fixed;
+    height:250px;
+    margin-top : -200px;
+    display: inline;
+}
+
+#menu a:link, #menu a:visited {
+   line-height: 50px;
+   font-weight: bold;
+   text-decoration: none;  
+}         
+
+li a {
+  text-decoration: none;
+  color : black;
+  cursor: pointer;
+}
+
+#menu a:hover {
+  border-bottom: 2px solid black;
+  font-size: 15px;
+}
+#menu a:visited {
+  color : grey;
+}
+
+#menu li {
+  text-align: center;
+  background-repeat: no-repeat;
+  font-size: 12px;
+  font-variant: small-caps;
+  list-style : none;
+  margin :0;
+  border: 5px double black;
+  background-color: white;
+  color: black;
+  width: 150px;
+}
+
+
+#msg{
+    text-align: center;
+    font-size : 25px;
+    margin: 80px;
+    margin-top: -180px;
+    -moz-border-radius:30px 0;
+    -webkit-border-radius:30px ;
+    border-radius: 0 30px; 
+    border-top: 3px solid black;
+    font-family:Georgia;
+}
+
+#bienvenu{
+  margin-left: 540px;
+  margin-bottom: 200px;
+  margin-top: -2px;
+   text-align: center;
+  font-size : 42px;
+  font-family: sans-serif;
+  font-variant: small-caps;
+  font-weight: bold;
+  width: 250px;
+  color: white;
+  background-color: black;
+  -moz-border-radius:30px 30px;
+-webkit-border-radius:30px ;
+border-radius: 0 0 30px 30px ; 
+
+}
+
+
+#pieddepage {
+  position: relative;
+  bottom: 0px;
+  margin-top: 50px;
+  height:10px;
+  font-size : 80%;
+  text-align : center; 
+  padding : 10px 0;
+  background-color : white;
+  border : 1px solid black;
+}
+
+#msg a {
+  text-decoration: none;
+  color :  #06325E;
+  
+    font-family:Georgia;
+
+}
+
+#msg a:hover {
+  color :#91BCE8;
+
+}

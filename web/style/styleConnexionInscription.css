@@ -1,0 +1,348 @@
+#all{
+
+ /*width : 980px;
+ height: 600px;
+ margin : auto;
+margin-top: 10px;
+margin-left: 60px;*/
+}
+ body {
+ background-color: white;
+ /* */
+  background-image:url('image/bg2.jpg');
+  background-size: 1500px;
+ }
+
+* {
+  font-family : tahoma, arial, serif;
+
+}
+
+#ul {
+  cursor: pointer;
+}
+
+#entete {
+  margin-top: -15px;
+  background-image: url(./image/Galaxy-cloud-desktop-wallpaper.jpg);
+  border : solid 2px white;
+} 
+
+ 
+h1{
+   text-align: center;
+  color: white;
+  font-family: serif;
+  font-size : 85px;
+   /*font-variant: small-caps;*/
+  font-family: "Times New Roman", Times, serif;
+}
+
+h2 {
+  margin-left: 540px;
+  margin-top: -30px;
+   text-align: center;
+  font-size : 42px;
+  font-family: sans-serif;
+  font-variant: small-caps;
+  font-weight: bold;
+  width: 250px;
+  color: white;
+  background-color: black;
+  -moz-border-radius:30px 30px;
+-webkit-border-radius:30px ;
+border-radius: 0 0 30px 30px ; 
+}
+
+
+
+#main {/**/
+ 
+  
+  height:500px;
+
+
+/*padding-bottom: 30px;background-color: white;
+  border : 1px solid ;
+padding-left: 30px;*/
+
+
+} 
+
+.show, .hide { 
+  color: white;
+}
+
+#menu {
+    margin-left: 10px;
+    float:left;
+    position: fixed;
+    height:250px;
+    margin-top : -200px;
+    display: inline;
+}
+
+
+#menu a:link, #menu a:visited {
+   line-height: 50px;
+   font-weight: bold;
+   text-decoration: none;  
+}         
+
+li a {
+  text-decoration: none;
+  color : black;
+  cursor: pointer;
+}
+
+#menu a:hover {
+  border-bottom: 2px solid black;
+  font-size: 15px;
+}
+#menu a:visited {
+  color : grey;
+}
+
+#menu li {
+ text-align: center;
+  /* padding-left : 30px;background-image:url('images/fond_livre.png');background-size: 40px;*/
+  background-repeat: no-repeat;
+  font-size: 12px;
+  font-variant: small-caps;
+  list-style : none;
+  margin :0;
+   border: 5px double black;
+   background-color: white;
+   color: black;
+   width: 150px;
+  /*  -moz-border-radius:10px 0;
+-webkit-border-radius:10px ;
+border-radius:10px 0;*/
+ /* display: table-cell;
+  display: inline;*/
+}
+
+
+
+#centre {
+  
+/* position: relative;
+ top : 30px;
+ width: 1010px;
+ height: 400px;
+  margin-left: 10px;
+  margin-top : 30px;
+  clear : right;
+border : 2px solid black;*/
+}
+
+#loginForm {
+    /**/box-shadow: 0 0 2px rgba(0, 0, 0, 0.2),  
+                0 1px 1px rgba(0, 0, 0, .2),
+                0 3px 0 #fff,
+                0 4px 0 rgba(0, 0, 0, .2),
+                0 6px 0 #fff,  
+                0 7px 0 rgba(0, 0, 0, 0);
+    position: absolute;
+    left : 400px;
+    top : 50px;
+    z-index: 0;
+    background-color: white;
+    height: 80%;
+}
+
+/*tr th {
+
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .7), 0px 2px 0 rgba(0, 0, 0, .5);
+    text-transform: uppercase;
+    text-align: center;
+    color: #666;
+    margin: 0 0 30px 0;
+    letter-spacing: 4px;
+    font: normal 260% Verdana, Helvetica;
+    position: relative;
+    background-color: white;
+    border: 1px solid black;
+}
+
+form {
+  font-weight: bold;
+  padding : 30px;*/
+//}
+
+#imgconnexion img {
+ /* background-image: url(./image/Brown-Pattern-Frame.jpg);
+  width: 100px;
+  height:100px;
+  background-repeat: no-repeat;
+  background-position: center;*/
+}
+
+/*.bouton {
+font-family: Arial,sans-serif; 
+font-size: 20px; 
+width: 150px; 
+height: 80px; 
+text-align: center; 
+color: white; 
+background: #444;
+background: #444; 
+background: -webkit-linear-gradient( #555, #2C2C2C); 
+background: -moz-linear-gradient( #555, #2C2C2C); 
+background: -ms-linear-gradient( #555, #2C2C2C); 
+background: -o-linear-gradient( #555, #2C2C2C); 
+background: linear-gradient( #555, #2C2C2C);
+border-radius: 8px;
+text-shadow: 0px 1px 0px white;
+ text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.2);
+ box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), 
+ 0 -1px 0 rgba( 255, 255, 255, 0.4);
+ float: right;
+ cursor: pointer;
+}
+
+.bouton:hover{ color: #222; 
+  background: #555; 
+  background: -webkit-linear-gradient( #777, #333); 
+  background: -moz-linear-gradient( #777, #333); 
+  background: -ms-linear-gradient( #777, #333); 
+  background: -o-linear-gradient( #777, #333); 
+  background: linear-gradient( #777, #333); }
+.etiquette {
+ font: bold 20px serif, Sans-Serif; 
+ margin-top: 30px;
+}*/
+
+input {
+width: 350px; 
+display: block;
+
+
+  letter-spacing: 3px;
+ font: bold 20px serif, Sans-Serif; 
+ color: #525c73;
+margin-top: 30px;
+margin-left: 75px;
+}
+
+#retour {
+  color : black;
+  font-size: 20px;
+  padding-left: 300px;
+  /*font-weight: bold;
+  font-variant: small-caps;*/
+}
+
+#retour:hover {
+  color : grey;
+  font-variant: small-caps;
+}
+
+#retour a:visited {
+  color : black;
+}
+
+
+
+#pieddepage {
+  float : center;
+  position: relative;
+  bottom: 0px;
+  margin-top: 120px;
+  height:10px;
+  font-size : 80%;
+  text-align : left; 
+  padding : 10px 0;
+  padding-right:600px;
+  padding-left: 7px;
+  background-color : white;
+  border : 1px solid black;
+
+}
+
+#connexion {
+  margin-top: 20px;
+  margin-left: 410px;
+  border : 2px dotted black;
+  width: 500px;
+  height: 350px;
+  background-color: white;
+  padding-top: 20px;
+}
+
+#inscription {
+  margin-top: 20px;
+  margin-left: 410px;
+  margin-bottom: 50px;
+  border : 2px dotted black;
+  width: 500px;
+  background-color: white;
+  padding-top: 20px;
+}
+
+#image{
+  /*border : 6px dotted black;*/
+  padding-left: 195px;
+}
+
+form {
+  /*text-align: center;
+  margin: 30px;*/
+}
+
+input,label{
+  font-size: 22px;
+}
+
+button {
+  font-family: Arial,sans-serif; 
+  font-size: 20px; 
+  width: 140px; 
+  height: 40px; 
+  margin-top: -50px;
+  margin-left: 250px;
+  text-align: center; 
+  color: white; 
+  background: #444;
+  background: #444; 
+  background: -webkit-linear-gradient( #555, #2C2C2C); 
+  background: -moz-linear-gradient( #555, #2C2C2C); 
+  background: -ms-linear-gradient( #555, #2C2C2C); 
+  background: -o-linear-gradient( #555, #2C2C2C); 
+  background: linear-gradient( #555, #2C2C2C);
+  border-radius: 8px;
+  text-shadow: 0px 1px 0px white;
+  text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.2);
+  box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), 
+  0 -1px 0 rgba( 255, 255, 255, 0.4);
+ 
+  cursor: pointer;
+}
+
+button:hover {
+  color: #222; 
+  background: #555; 
+  background: -webkit-linear-gradient( #777, #333); 
+  background: -moz-linear-gradient( #777, #333); 
+  background: -ms-linear-gradient( #777, #333); 
+  background: -o-linear-gradient( #777, #333); 
+  background: linear-gradient( #777, #333); 
+}
+
+ input:required:invalid, input:focus:invalid { 
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAeVJREFUeNqkU01oE1EQ/mazSTdRmqSxLVSJVKU9RYoHD8WfHr16kh5EFA8eSy6hXrwUPBSKZ6E9V1CU4tGf0DZWDEQrGkhprRDbCvlpavan3ezu+LLSUnADLZnHwHvzmJlvvpkhZkY7IqFNaTuAfPhhP/8Uo87SGSaDsP27hgYM/lUpy6lHdqsAtM+BPfvqKp3ufYKwcgmWCug6oKmrrG3PoaqngWjdd/922hOBs5C/jJA6x7AiUt8VYVUAVQXXShfIqCYRMZO8/N1N+B8H1sOUwivpSUSVCJ2MAjtVwBAIdv+AQkHQqbOgc+fBvorjyQENDcch16/BtkQdAlC4E6jrYHGgGU18Io3gmhzJuwub6/fQJYNi/YBpCifhbDaAPXFvCBVxXbvfbNGFeN8DkjogWAd8DljV3KRutcEAeHMN/HXZ4p9bhncJHCyhNx52R0Kv/XNuQvYBnM+CP7xddXL5KaJw0TMAF8qjnMvegeK/SLHubhpKDKIrJDlvXoMX3y9xcSMZyBQ+tpyk5hzsa2Ns7LGdfWdbL6fZvHn92d7dgROH/730YBLtiZmEdGPkFnhX4kxmjVe2xgPfCtrRd6GHRtEh9zsL8xVe+pwSzj+OtwvletZZ/wLeKD71L+ZeHHWZ/gowABkp7AwwnEjFAAAAAElFTkSuQmCC); 
+  background-position: right top; 
+  background-repeat: no-repeat; 
+  -moz-box-shadow: none; 
+} 
+
+  input:required:valid { 
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAepJREFUeNrEk79PFEEUx9/uDDd7v/AAQQnEQokmJCRGwc7/QeM/YGVxsZJQYI/EhCChICYmUJigNBSGzobQaI5SaYRw6imne0d2D/bYmZ3dGd+YQKEHYiyc5GUyb3Y+77vfeWNpreFfhvXfAWAAJtbKi7dff1rWK9vPHx3mThP2Iaipk5EzTg8Qmru38H7izmkFHAF4WH1R52654PR0Oamzj2dKxYt/Bbg1OPZuY3d9aU82VGem/5LtnJscLxWzfzRxaWNqWJP0XUadIbSzu5DuvUJpzq7sfYBKsP1GJeLB+PWpt8cCXm4+2+zLXx4guKiLXWA2Nc5ChOuacMEPv20FkT+dIawyenVi5VcAbcigWzXLeNiDRCdwId0LFm5IUMBIBgrp8wOEsFlfeCGm23/zoBZWn9a4C314A1nCoM1OAVccuGyCkPs/P+pIdVIOkG9pIh6YlyqCrwhRKD3GygK9PUBImIQQxRi4b2O+JcCLg8+e8NZiLVEygwCrWpYF0jQJziYU/ho2TUuCPTn8hHcQNuZy1/94sAMOzQHDeqaij7Cd8Dt8CatGhX3iWxgtFW/m29pnUjR7TSQcRCIAVW1FSr6KAVYdi+5Pj8yunviYHq7f72po3Y9dbi7CxzDO1+duzCXH9cEPAQYAhJELY/AqBtwAAAAASUVORK5CYII=); 
+    background-position: right top; 
+    background-repeat: no-repeat; 
+  }
+
+ span 
+  {
+    text-align: center;
+  } 
