@@ -6,7 +6,10 @@ public class Categorie
   private String nomcat = "";
   private String email = "";
 
-	
+	//J'ai créé un constructeur sans arguments, Franklin
+        public Categorie()	//Constructeur
+	{
+	}	
 	public Categorie(String n)	//Constructeur
 	{
 		this.nomcat = n;

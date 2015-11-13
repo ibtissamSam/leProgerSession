@@ -5,8 +5,14 @@
  */
 package com.projetFavGit.servlets;
 
+
+import com.projetFavGit.DAO.implement.LienDAO;
+import com.projetFavGit.modele.Lien;
+import com.projetFavGit.util.Connexion;
+//import com.projetFavGit.DAO.implement.LienDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,20 +37,34 @@ public class AjouterAction extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AjouterAction</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AjouterAction at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        //paramètres envoyés pour l'incertion d'un nouveau lien dans la BD
+               String id = request.getParameter("idLien");
+               String titre = request.getParameter("titre"),
+               nomCat = request.getParameter("nomCat"),
+               adresse = request.getParameter("adresse");        
+               
+               //conversion du id en int pour la base de données
+               int leID = Integer.parseInt(id);
+        Connexion.setUrl(this.getServletContext().getInitParameter("URLbaseDonnees"));
+        LienDAO dao = new LienDAO(Connexion.getInstance());
+        Lien leLien = new Lien(leID,titre,nomCat,adresse);
+        
+        if (dao.create(leLien)){
+            
+            request.setAttribute("message", "Nouveau lien favori ajouté");
+            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp");
+            r.forward(request, response);
+            return;
+        
         }
-    }
+        else {
+            
+            request.setAttribute("message", "le lien existe déjà");
+            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp");
+            r.forward(request, response);
+            }
+        }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

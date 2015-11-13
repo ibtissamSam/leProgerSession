@@ -8,6 +8,9 @@ public class Membre
         private String nom = "";
 	
 	//constructeurs
+        public Membre() // pour la mise à jour des membres
+	{
+	}
         
 	public Membre(String email)
 	{

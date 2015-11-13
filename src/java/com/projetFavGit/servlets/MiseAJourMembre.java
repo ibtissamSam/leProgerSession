@@ -3,20 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.projetFavGit.DAO.implement;
 
+package com.projetFavGit.servlets;
+
+import com.projetFavGit.DAO.implement.MembreDAO;
+import com.projetFavGit.modele.Membre;
+import com.projetFavGit.util.Connexion;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author ibtissam
+ * @author Génie Franklin
  */
-public class DAO extends HttpServlet {
+public class MiseAJourMembre extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,20 +35,35 @@ public class DAO extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet DAO</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet DAO at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+               HttpSession session = request.getSession(true);
+               String prenomMembre = request.getParameter("prenomMembre"), // Est-ce que ce sera AUTOINCREMENT??
+               nomMembre = request.getParameter("nomMembre"),
+               motDePasse = request.getParameter("motdepasse");
+               
+               Connexion.setUrl(this.getServletContext().getInitParameter("URLbaseDonnees"));
+               MembreDAO dao = new MembreDAO(Connexion.getInstance());
+               Membre leMembre = new Membre();
+               leMembre.setEmail(((Membre)session.getAttribute("connecte")).getEmail());
+               leMembre.setNom(nomMembre);
+               leMembre.setPrenom(prenomMembre);
+               
+                if (dao.update(leMembre)){
+            
+            request.setAttribute("message", "Mise à jour réussie avec succès");
+            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp");
+            r.forward(request, response);
+            return;        
+            }
+                else {
+            
+            request.setAttribute("message", "Erreur de mise à jour");
+            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp");
+            r.forward(request, response);
+            }
+               
         }
-    }
+    
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

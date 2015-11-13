@@ -52,7 +52,6 @@
         <servlet-name>TraitementInscription</servlet-name>
         <servlet-class>com.projetSessionGit.servlets.TraitementInscription</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>LogoutAction</servlet-name>
         <servlet-class>com.projetSessionGit.servlets.LogoutAction</servlet-class>
@@ -92,6 +91,10 @@
     <servlet>
         <servlet-name>ParametreAction</servlet-name>
         <servlet-class>com.projetSessionGit.servlets.ParametreAction</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MiseAJourMembre</servlet-name>
+        <servlet-class>com.projetFavGit.servlets.MiseAJourMembre</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>controleurFrontal</servlet-name>
@@ -165,7 +168,10 @@
         <servlet-name>ParametreAction</servlet-name>
         <url-pattern>/parametre</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>MiseAJourMembre</servlet-name>
+        <url-pattern>/MiseAJourMembre</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
