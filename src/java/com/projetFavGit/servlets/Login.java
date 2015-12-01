@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class LoginAction extends HttpServlet {
+public class Login extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -20,7 +20,7 @@ public class LoginAction extends HttpServlet {
             
         } catch (ClassNotFoundException ex) {
             request.setAttribute("message", "Impossible de charger le pilote");
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/connexion.jsp");
+            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/login.jsp");
             r.forward(request, response);
         }
         Connexion.setUrl(this.getServletContext().getInitParameter("URLbaseDonnees"));
@@ -30,7 +30,7 @@ public class LoginAction extends HttpServlet {
         {
             //Utilisateur non saisi :
             request.setAttribute("message", "email obligatoire");
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/connexion.jsp");
+            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/login.jsp");
             r.forward(request, response);
             return;
         }
@@ -45,7 +45,7 @@ public class LoginAction extends HttpServlet {
                     HttpSession session = request.getSession(true);
                     member.setPass("*****");//pour sécurité.
                     session.setAttribute("connecte", member);
-                    RequestDispatcher r = this.getServletContext().getRequestDispatcher("/pageMembre.jsp");
+                    RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp");
                     r.forward(request, response);
                     ///return;
                 }
@@ -53,14 +53,14 @@ public class LoginAction extends HttpServlet {
                 {
                     //Mot de passe incorrect
                     request.setAttribute("message", "Mot de passe incorrect.");
-                    RequestDispatcher r = this.getServletContext().getRequestDispatcher("/connexion.jsp");
+                    RequestDispatcher r = this.getServletContext().getRequestDispatcher("/login.jsp");
                     r.forward(request, response);
                 }
         }
         else{
             //Utilisateur inexistant
             request.setAttribute("message", "email "+u+" inexistant.");
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/connexion.jsp");
+            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/login.jsp");
             r.forward(request, response);
         }
      }

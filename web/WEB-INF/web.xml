@@ -3,7 +3,7 @@
     <context-param>
         <description>URL de la BD myfav</description>
         <param-name>URLbaseDonnees</param-name>
-        <param-value>jdbc:mysql://localhost/myfav?user=root</param-value>
+        <param-value>jdbc:mysql://localhost/myfavs?user=root</param-value>
     </context-param>
     <context-param>
         <description>Pilote pour mySQL</description>
@@ -12,166 +12,43 @@
     </context-param>
     <servlet>
         <servlet-name>controleurFrontal</servlet-name>
-        <servlet-class>com.projetSessionGit.controleur.controleurFrontal</servlet-class>
+        <servlet-class>com.projetFavGit.controleur.controleurFrontal</servlet-class>
     </servlet>
     <servlet>
         <description>Servlet de login.</description>
-        <servlet-name>LoginAction</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.LoginAction</servlet-class>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>com.projetFavGit.servlets.Login</servlet-class>
     </servlet>
+ 
     <servlet>
-        <description>Servlet de déconnection</description>
-        <servlet-name>LogoutAction</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.LogoutAction</servlet-class>
+        <servlet-name>Inscription</servlet-name>
+        <servlet-class>com.projetFavGit.servlets.Inscription</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>ActionPresentation</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.ActionPresentation</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AfficherAction</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.AfficherAction</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AfficherFavMembreAction</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.AfficherFavMembreAction</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LoginAction</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.LoginAction</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ActionMembre</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.ActionMembre</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ActionModifier</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.ActionModifier</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>TraitementInscription</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.TraitementInscription</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LogoutAction</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.LogoutAction</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AjouterAction</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.AjouterAction</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SupprimerAction</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.SupprimerAction</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AjouterActioncat</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.AjouterActioncat</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PartagerAction</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.PartagerAction</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SupprimerCategorieAction</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.SupprimerCategorieAction</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ModifierCategorieAction</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.ModifierCategorieAction</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AfficherPartagerAction</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.AfficherPartagerAction</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AffichePartageSeconde</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.AffichePartageSeconde</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ParametreAction</servlet-name>
-        <servlet-class>com.projetSessionGit.servlets.ParametreAction</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>MiseAJourMembre</servlet-name>
-        <servlet-class>com.projetFavGit.servlets.MiseAJourMembre</servlet-class>
-    </servlet>
+
+    
+    
     <servlet-mapping>
         <servlet-name>controleurFrontal</servlet-name>
         <url-pattern>/ctrl.do</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
-        <servlet-name>ActionPresentation</servlet-name>
-        <url-pattern>/presentation</url-pattern>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
+   
+ 
     <servlet-mapping>
-        <servlet-name>AfficherAction</servlet-name>
-        <url-pattern>/afficher</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AfficherFavMembreAction</servlet-name>
-        <url-pattern>/afficherfavmembre</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoginAction</servlet-name>
-        <url-pattern>/connecter</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ActionMembre</servlet-name>
-        <url-pattern>/pagemembre</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ActionModifier</servlet-name>
-        <url-pattern>/modifier</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>TraitementInscription</servlet-name>
+        <servlet-name>Inscription</servlet-name>
         <url-pattern>/inscription</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LogoutAction</servlet-name>
-        <url-pattern>/deconnexion</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AjouterAction</servlet-name>
-        <url-pattern>/ajouter</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SupprimerAction</servlet-name>
-        <url-pattern>/supprimer</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AjouterActioncat</servlet-name>
-        <url-pattern>/ajoutercat</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PartagerAction</servlet-name>
-        <url-pattern>/partager</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SupprimerCategorieAction</servlet-name>
-        <url-pattern>/supprimercat</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ModifierCategorieAction</servlet-name>
-        <url-pattern>/modifiercat</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AfficherPartagerAction</servlet-name>
-        <url-pattern>/afficherpartager</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AffichePartageSeconde</servlet-name>
-        <url-pattern>/partagevue</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ParametreAction</servlet-name>
-        <url-pattern>/parametre</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>MiseAJourMembre</servlet-name>
-        <url-pattern>/MiseAJourMembre</url-pattern>
-    </servlet-mapping>
+
+    
+    
+  
+    
+    
+    
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

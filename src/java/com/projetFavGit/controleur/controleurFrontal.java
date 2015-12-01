@@ -29,80 +29,20 @@ public class controleurFrontal extends HttpServlet {
                 response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
-        if ("presentation".equals(action)){
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/presentation");
+        
+         if ("login".equals(action)){
+            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/login");
             r.forward(request, response);
-        }
-        if ("afficher".equals(action)){
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/afficher");
-            r.forward(request, response);
-        }
-        if ("afficherfavmembre".equals(action)){
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/afficherfavmembre");
-            r.forward(request, response);
-        }
-        if ("connecter".equals(action)){
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/connecter");
-            r.forward(request, response);
-        }
-        if ("pagemembre".equals(action)){
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/pagemembre");
-            r.forward(request, response);
-        }
-        if ("modifier".equals(action)){
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/modifier");
-            r.forward(request, response);
-        }
-        if ("inscription".equals(action)){
+        }  
+          if ("inscription".equals(action)){
             RequestDispatcher r = this.getServletContext().getRequestDispatcher("/inscription");
             r.forward(request, response);
-        }
-        if ("page".equals(action)||"page2".equals(action)||"page3".equals(action)||"page4".equals(action)){
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/afficher");
-            r.forward(request, response);
-        }
-         if ("deconnexion".equals(action)){
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/deconnexion");
-            r.forward(request, response);
-        }
-          if ("ajouter".equals(action)){
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/ajouter");
-            r.forward(request, response);
-        }
-        if ("supprimer".equals(action)){
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/supprimer");
-            r.forward(request, response);
-        }
-        if ("ajoutercat".equals(action)){
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/ajoutercat");
-            r.forward(request, response);
-        }
-        if ("partager".equals(action)){
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/partager");
-            r.forward(request, response);
-        }
-        if ("supprimercat".equals(action) || "ajouterCR".equals(action)){
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/supprimercat");
-            r.forward(request, response);
-        }
-        if ("modifiercat".equals(action)){
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/modifiercat");
-            r.forward(request, response);
-        }
-           if ("afficherpartager".equals(action)){
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/afficherpartager");
-            r.forward(request, response);
-        }     
-            if ("partagevue".equals(action)){
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/partagevue");
-            r.forward(request, response);
-        }    
-             if ("parametre".equals(action)){
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/parametre");
-            r.forward(request, response);
-        }    
+        } 
+          
     }
+    
 
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP

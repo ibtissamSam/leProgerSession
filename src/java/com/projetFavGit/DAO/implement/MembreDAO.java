@@ -17,8 +17,8 @@ public class MembreDAO extends DAO<Membre>{
 
 	@Override
 	public boolean create(Membre x) {
-		String req = "INSERT INTO membre (`email','pass','prenom','nom') "+
-				"VALUES ('"+x.getEmail()+"','"+x.getPass()+"','"+x.getPrenom()+"','"+x.getNom()+"')";
+		String req = "INSERT INTO membre ('email','pass','nom','prenom') "+
+				"VALUES ('"+x.getEmail()+"','"+x.getPass()+"','"+x.getNom()+"','"+x.getPrenom()+"')";
 		Statement stm = null;
 		try 
 		{

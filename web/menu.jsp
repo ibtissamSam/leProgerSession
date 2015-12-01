@@ -1,17 +1,51 @@
-<%-- 
-    Document   : menu
-    Created on : Oct 31, 2015, 10:10:01 PM
-    Author     : ibtissam
---%>
+<style type="text/css">
+      .show {display: none; }
+      .hide:focus + .show {display: inline; }
+      .hide:focus { display: none; }
+      .hide:focus ~ #list { display:none; }
+      @media print { .hide, .show { display: none; } }
+ </style>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+
+<div id="menu">
+	<a href="#" class="hide">Menu &uarr;</a>
+         <a href="#" class="show">Menu &darr;</a>
+			<ul id="list">
+				
+							
+<?php
+	if (!ISSET($_SESSION)) session_start();
+	if (ISSET($_SESSION["email"]))
+	{
+?>
+				<li>
+					<a href="?action=pagemembre">Accueil</a>
+				</li>
+				<li>
+					<a  href="?action=page">Nos Favoris</a>
+				</li>	
+	<?php	
+	}
+	else
+	{
+?>			
+				<li>
+					<a href="?action=presentation">Accueil</a>
+				</li>
+				<li>
+					<a  href="?action=page">Nos Favoris</a>
+				</li>
+				<li>
+					<a  href="?action=connecter">Se connecter</a>
+				</li>
+				<li>
+					<a  href="?action=inscription">S'inscrire</a>
+				</li>	
+
+<?php	
+	}
+?>			
+		
+			</ul>
+		</div>
+

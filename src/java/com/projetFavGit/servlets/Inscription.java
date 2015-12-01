@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Trauko
  */
-public class TraitementInscription extends HttpServlet {
+public class Inscription extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -39,7 +39,7 @@ public class TraitementInscription extends HttpServlet {
 
             } catch (ClassNotFoundException ex) {
                 request.setAttribute("message", "Impossible de charger le pilote");
-                RequestDispatcher r = this.getServletContext().getRequestDispatcher("/connexion.jsp");
+                RequestDispatcher r = this.getServletContext().getRequestDispatcher("/login.jsp");
                 r.forward(request, response);
             }
             Connexion.setUrl(this.getServletContext().getInitParameter("URLbaseDonnees"));
@@ -47,6 +47,7 @@ public class TraitementInscription extends HttpServlet {
           String reponse="";
           String u = request.getParameter("email");
           String p = request.getParameter("pass");
+          String pp = request.getParameter("pass2");
           String cp = request.getParameter("prenom");
           String c = request.getParameter("nom");
          
@@ -56,15 +57,15 @@ public class TraitementInscription extends HttpServlet {
           }
           else if ("".equals(p)){reponse="Mot de passe obligatoire";  }
           else if ("".equals(cp)){reponse="Prenom obligatoire";  }
-         // else if (!cp.equals(p)){reponse="Le deux mot de passe ne sont pas égaux";  }
+          else if (!p.equals(pp)){reponse="Le deux mot de passe ne sont pas égaux";  }
           else if ("".equals(c)){reponse="nom obligatoire";  }
             else
             {  MembreDAO mDAO=new MembreDAO(Connexion.getInstance());
-               Membre membre=new Membre(u,p,cp,c);
+               Membre membre=new Membre(u,p,c,cp);
                String dispatcher; 
                if(mDAO.read(u)==null) {
                    mDAO.create(membre);
-                   dispatcher="/connexion.jsp";
+                   dispatcher="/login.jsp";
                    reponse="";
                 }
                 else {
