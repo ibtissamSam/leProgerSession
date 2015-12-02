@@ -14,6 +14,9 @@ import com.projetFavGit.util.Connexion;
 //import com.projetFavGit.servlets.LoginAction;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,14 +42,17 @@ public class AjouterActionCat extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ClassNotFoundException {
                HttpSession session = request.getSession(true);
                String idCat = request.getParameter("idCat"); // Est-ce que ce sera AUTOINCREMENT??
                String nom = request.getParameter("nomCat");
                       
                
                //conversion du id en int pour la base de données
+              if( idCat == null )
+                out.print("Le id du lien est null");  
                int leID = Integer.parseInt(idCat);
+              Class.forName(request.getServletContext().getInitParameter("piloteJDBC"));
         Connexion.setUrl(this.getServletContext().getInitParameter("URLbaseDonnees"));
         CategorieDAO dao = new CategorieDAO(Connexion.getInstance());
         
@@ -60,7 +66,7 @@ public class AjouterActionCat extends HttpServlet {
         if (dao.create(laCat)){
             
             request.setAttribute("message", "Nouvelle catégorie ajoutée");
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp");
+            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/pageMembre.jsp");
             r.forward(request, response);
             return;
         
@@ -68,7 +74,7 @@ public class AjouterActionCat extends HttpServlet {
         else {
             
             request.setAttribute("message", "la catégorie existe déjà");
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp");
+            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/pageMembre.jsp");
             r.forward(request, response);
             }
         }
@@ -86,7 +92,11 @@ public class AjouterActionCat extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AjouterActionCat.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -100,7 +110,11 @@ public class AjouterActionCat extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AjouterActionCat.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
