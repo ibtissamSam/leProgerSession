@@ -26,6 +26,12 @@
   </head>
 
   <body >
+      <%
+      if (request.getAttribute("message")!=null)
+        {
+            out.println("<p class=\"errorMessage\">"+request.getAttribute("message")+"</p>");
+        }
+      %>
     <!-- Debut all -->
     <div id="all">
     <div id="entete">
@@ -33,23 +39,17 @@
             </div>	
       <!-- Debut main -->
         <div id="main">
-        <?php
-        include("menu.php");
-        ?>
         <!-- Debut centre -->
         <div id="centre">
           <!-- Debut message -->
           <div id="message">
             <div id="photo"><img src="./style/image/Icon-Profil.png" alt="image"/></div> 
-            <?php 
-              require_once('./modele/classes/Membre.class.php');
-              require_once('./modele/MembreDAO.class.php');
-              $membre = new MembreDAO();
-              $m = new Membre();
-              $m = $membre->find($_SESSION["email"]);
-              echo $m->getPrenom(); 
-            ?>
-            <a href="?action=parametre" id = "param"> Modifier</a>
+            
+          
+            <a href="?action=afficherLien"> Modifier lien</a>
+            <br />
+            <a href="modifiercat.jsp"> Modifier categorie</a>
+          
 
             <br />
             <div id = "deconnexion"><a href="?action=deconnexion">D&eacuteconnexion</a></div>
@@ -61,8 +61,8 @@
             <ul>
               <li><a href="#">Ajouter</a>
                 <ul>
-                  <li><a href="?action=ajouter">Lien</a></li>
-                  <li><a href="?action=ajoutercat">Cat&eacutegorie</a></li>
+                  <li><a href="ajouter.jsp">Lien</a></li>
+                  <li><a href="ajouterCat.jsp">Cat&eacutegorie</a></li>
                 </ul>
               </li>
 
@@ -74,71 +74,12 @@
           <!-- fin menu2 -->
           <!--              Debut affichage des catégories et des liens du membre      -->
           <div id = "listeCategories"> 
-            <?php
-              require_once('./modele/CategorieDAO.class.php');  
-              require_once('./modele/classes/ListeCategorie.class.php');
-
-              $dao2 = new CategorieDAO();
-              $liste = $dao2->findAll();
-              $comptcat = 0;
-
-              while ($liste->next()) {
-                $p = $liste->getCurrent();
-                if ($p!=null)
-                {   
-                  $categorie = explode(',',$p);
-                  if ($categorie[1] == $_SESSION["email"])
-                    { 
-                      $comptcat++; 
-                      echo "
-                      <div id= 'listeCat'>
-                      ".$categorie[0]." 
-                      <a href='?action=pagemembre&catASupprimer=".$categorie[2]."' onclick='Supp(this.href); return(false);' >  <img src='./style/image/delete.png' alt='' /> </a> </br>
-                      <a href='?action=modifiercat&catAModifier=".$categorie[2]."'>  <img src='./style/image/edit.png' alt='' /> </a>
-                      </div> <br/>";
-                    }
-
-                  $dao3 = new LienDAO();
-                  $liste3 = $dao3->findAll();
-
-                  while ($liste3->next()) {
-                    $p3 = $liste3->getCurrent();
-                    if ($p3!=null)
-                    {  
-                      $lien= explode(',',$p3);
-                      //  echo $lien[0];
-                      if ($categorie[1] == $_SESSION["email"]) {
-                        if ($categorie[0] == $lien[3])
-                        { 
-                          if ($lien[2] != null)
-                          { 
-                          echo "<figure>
-                          <img src='./style/image/favoris.png' alt='' />
-                          <figcaption><a href='".$lien[2]."'>".$lien[1]."</a>
-                          <a href='?action=modifier&numAModifier=".$lien[0]."'>  <img  src='./style/image/edit.png' alt='' /> </a>
-                          <a href='?action=supprimer&numASupprimer=".$lien[0]."' onclick='Supp(this.href); return(false);'> <img src='./style/image/delete.png' alt='' /></a>
-                          </figcaption>
-                          </figure>";
-                          }
-                        } 
-                      }
-                    } 
-                  } 
-
-                }
-              }
-              if ($comptcat == 0 )
-                echo "Vous n'avez aucune cat&eacute;gorie pour le moment. <a href='?action=ajoutercat'>Ajoutez-en une</a>";
-            ?>
           </div>
           <!--             Fin de l'affichage des catégories et des liens du membre      -->
           </div>
           <!-- fin centre -->
         </div>
         <!-- Fin main-->
-      <?php
-      include("footer.php");
-      ?>
     </div>
     <!-- Fin all -->
 

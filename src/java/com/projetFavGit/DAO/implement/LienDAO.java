@@ -17,8 +17,8 @@ public class LienDAO extends DAO<Lien>{
 
 	@Override
 	public boolean create(Lien x) {
-		String req = "INSERT INTO lien (`idlien','titre','adresse','nomcat') "+
-				"VALUES ('"+x.getIdlien()+"','"+x.getTitre()+"','"+x.getAdresse()+"','"+x.getNomcat()+"')";
+		String req = "INSERT INTO lien (idlien,titre,adresse,nomcat) "+
+				"VALUES ("+x.getIdlien()+",'"+x.getTitre()+"','"+x.getAdresse()+"','"+x.getNomcat()+"')";
 		Statement stm = null;
 		try 
 		{

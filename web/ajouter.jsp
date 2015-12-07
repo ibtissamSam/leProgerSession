@@ -12,6 +12,18 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+            <form action="./ctrl.do" method="POST">
+              Id lien: <input type="text" name="idLien" value="" />
+              <br />
+              Titre: <input type="text" name="titre" value="" />
+              <br />
+              Adresse: <input type="text" name="adresse" value="" />
+              <br />
+              Nom catégorie: <input type="text" name="nomCat" value="" />
+              <br />
+              <input name="action" value="ajouter" type="hidden" />
+              <input type="submit" value="Ajouter" />
+             
+             </form>
     </body>
 </html>

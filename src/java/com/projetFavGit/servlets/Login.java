@@ -45,7 +45,7 @@ public class Login extends HttpServlet {
                     HttpSession session = request.getSession(true);
                     member.setPass("*****");//pour sécurité.
                     session.setAttribute("connecte", member);
-                    RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp");
+                    RequestDispatcher r = this.getServletContext().getRequestDispatcher("/pageMembre.jsp");
                     r.forward(request, response);
                     ///return;
                 }

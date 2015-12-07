@@ -12,6 +12,8 @@ import com.projetFavGit.util.Connexion;
 //import com.projetFavGit.DAO.implement.LienDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,32 +39,38 @@ public class AjouterAction extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //paramètres envoyés pour l'incertion d'un nouveau lien dans la BD
-               String id = request.getParameter("idLien");
-               String titre = request.getParameter("titre"),
-               nomCat = request.getParameter("nomCat"),
-               adresse = request.getParameter("adresse");        
-               
-               //conversion du id en int pour la base de données
-               int leID = Integer.parseInt(id);
-        Connexion.setUrl(this.getServletContext().getInitParameter("URLbaseDonnees"));
-        LienDAO dao = new LienDAO(Connexion.getInstance());
-        Lien leLien = new Lien(leID,titre,nomCat,adresse);
-        
-        if (dao.create(leLien)){
-            
-            request.setAttribute("message", "Nouveau lien favori ajouté");
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp");
-            r.forward(request, response);
-            return;
-        
-        }
-        else {
-            
-            request.setAttribute("message", "le lien existe déjà");
-            RequestDispatcher r = this.getServletContext().getRequestDispatcher("/index.jsp");
-            r.forward(request, response);
+        PrintWriter out = response.getWriter();
+        try {
+            //paramètres envoyés pour l'incertion d'un nouveau lien dans la BD
+            String id = request.getParameter("idLien");
+            String titre = request.getParameter("titre"),
+                    adresse = request.getParameter("adresse"),
+                    nomCat = request.getParameter("nomCat");
+            //conversion du id en int pour la base de données
+            if( id == null )
+                out.print("Le id du lien est null");
+            int leID = Integer.parseInt(id);
+            Class.forName( request.getServletContext().getInitParameter("piloteJDBC"));
+            Connexion.setUrl(this.getServletContext().getInitParameter("URLbaseDonnees"));
+            LienDAO dao = new LienDAO(Connexion.getInstance());
+            Lien leLien = new Lien(leID,titre,adresse,nomCat);
+            if (dao.create(leLien)){
+                
+                request.setAttribute("message", "Nouveau lien favori ajouté");
+                RequestDispatcher r = this.getServletContext().getRequestDispatcher("/pageMembre.jsp");
+                r.forward(request, response);
+                return;
+                
             }
+            else {
+                
+                request.setAttribute("message", "ERREUR lien non ajouté");
+                RequestDispatcher r = this.getServletContext().getRequestDispatcher("/pageMembre.jsp");
+                r.forward(request, response);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AjouterAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
     
 

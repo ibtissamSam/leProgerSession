@@ -17,8 +17,8 @@ public class CategorieDAO extends DAO<Categorie>{
 
 	@Override
 	public boolean create(Categorie x) {
-		String req = "INSERT INTO categorie (`idcat' ,'nomcat' ,'email') "+
-				"VALUES ('"+x.getIdcat()+"','"+x.getNomcat()+"','"+x.getEmail()+"')";
+		String req = "INSERT INTO categorie (idcat,nomcat,email) "+
+				"VALUES ("+x.getIdcat()+",'"+x.getNomcat()+"','"+x.getEmail()+"')";
 		Statement stm = null;
 		try 
 		{

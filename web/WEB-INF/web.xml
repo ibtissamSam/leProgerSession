@@ -24,7 +24,11 @@
         <servlet-name>Inscription</servlet-name>
         <servlet-class>com.projetFavGit.servlets.Inscription</servlet-class>
     </servlet>
-
+    
+    <servlet>
+        <servlet-name>AjouterActionCat</servlet-name>
+        <servlet-class>com.projetFavGit.servlets.AjouterActionCat</servlet-class>
+    </servlet>
     
     
     <servlet-mapping>
@@ -43,7 +47,10 @@
         <url-pattern>/inscription</url-pattern>
     </servlet-mapping>
 
-    
+    <servlet-mapping>
+        <servlet-name>AjouterActionCat</servlet-name>
+        <url-pattern>/AjouterActionCat</url-pattern>
+    </servlet-mapping>
     
   
     

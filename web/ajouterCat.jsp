@@ -12,6 +12,15 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+         <form action="./ctrl.do" method="POST">
+              Id catégorie: <input type="text" name="idCat" value="" />
+              <br />
+              Nom Catégorie: <input type="text" name="nomCat" value="" />
+              <br />
+             
+              <input name="action" value="ajouterCategorie" type="hidden" />
+              <input type="submit" value="Ajouter" />
+             
+             </form>
     </body>
 </html>
